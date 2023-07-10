@@ -1,15 +1,29 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,500;0,600;0,700;0,800;0,900;1,400&display=swap");
+
+@import url("https://fonts.googleapis.com/css2?family=Play:wght@400;700&display=swap");
+
+
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+.main-div {
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	background-color: #ffffff;
+	font-family: "Poppins", "Play", sans-serif;
+}
 .spin-container{
     text-align: center;
     margin: auto;
     display: flex;
     justify-content: center;
-    padding-top: 100px;
+    padding-top: 60px;
 }
 
 .spin-button{
@@ -20,12 +34,45 @@
     cursor: pointer;
     padding: 12px 36px;
     font-weight: bold;
-    background-color: white;
-    border: 2px solid #2566c2;
+    background-color: #3b87f2;
+    border: 2px solid #2e7eef;
+    border-radius: 4px;
+}
+
+.spin-img{
+    align-items: center;
+    padding-top: 5px;
 }
 
 .spin-button:hover{
-    background-color: #2566c2;
+    background-color: #2361b9;
     color: white;
-    box-shadow: 0px 8px 16px rgba(0, 6, 43, 0.2);
+    box-shadow: 0px 5px 10px rgba(144, 146, 159, 0.822);
+}
+
+.spin-button:active{
+    background-color: #2361b9;
+    box-shadow: 0px 3.5px #7e97a4;
+    transform: translateY(3px);
+}
+
+.game-grid {
+	display: grid;
+	grid-template-rows: repeat(3, 10vw);
+	grid-template-columns: repeat(3, 11vw);
+}
+
+.box {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 5vw;
+	font-family: "Play", "Poppins", sans-serif;
+	margin: 0.1rem;
+    margin-bottom: 0.3rem;
+    border-radius: 0.2rem;
+	background-color: #19376d;
+	color: white;
+	cursor: pointer;
+	box-shadow: 0px 15px 20px -15px #1a1a1a; /* left/right top/bottom blurr spread */
 }
