@@ -2,7 +2,6 @@
 
 @import url("https://fonts.googleapis.com/css2?family=Play:wght@400;700&display=swap");
 
-
 *{
     margin: 0;
     padding: 0;
@@ -37,11 +36,6 @@
     background-color: #3b87f2;
     border: 2px solid #2e7eef;
     border-radius: 4px;
-}
-
-.spin-img{
-    align-items: center;
-    padding-top: 5px;
 }
 
 .spin-button:hover{
