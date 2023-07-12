@@ -2,106 +2,106 @@
 
 @import url("https://fonts.googleapis.com/css2?family=Play:wght@400;700&display=swap");
 
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 .main-div {
-	min-height: 100vh;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-	background-color: #ffffff;
-	font-family: "Poppins", "Play", sans-serif;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffffff;
+  font-family: "Poppins", "Play", sans-serif;
 }
-.spin-container{
-    text-align: center;
-    margin: auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.spin-button{
-    color: black;
-    justify-content: center;
-    align-items: center;
-    display: flex;
-    font-size: large;
-    transition-duration: 0.3s;
-    cursor: pointer;
-    padding: 12px 36px;
-    font-weight: bold;
-    background-color: #3bb8f2d2;
-    border: 2px solid #2e7eef;
-    border-radius: 4px;
+.spin-container {
+  text-align: center;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.spin-button:hover{
-    background-color: #2361b9;
-    color: white;
-    box-shadow: 0px 5px 10px rgba(144, 146, 159, 0.822);
+.spin-button {
+  color: black;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  font-size: large;
+  transition-duration: 0.3s;
+  cursor: pointer;
+  padding: 12px 36px;
+  font-weight: bold;
+  background-color: #53b5ffee;
+  border: 2px solid #2e7eef;
+  border-radius: 4px;
 }
 
-.spin-button:active{
-    background-color: #2361b9;
-    box-shadow: 0px 3.5px #7e97a4;
-    transform: translateY(2.5px);
+.spin-button:hover {
+  background-color: #2361b9;
+  color: white;
+  box-shadow: 0px 5px 8px rgba(144, 146, 159, 0.822);
 }
 
-.spin-button-contents{
-    display: flex;
-    width: fit-content;
-    gap: 0.5rem;
+.spin-button:active {
+  background-color: #2361b9;
+  box-shadow: 0px 3.5px #7e97a4;
+  transform: translateY(2.5px);
+}
+
+.spin-button-contents {
+  display: flex;
+  width: fit-content;
+  gap: 0.5rem;
 }
 
 .game-grid {
-	display: grid;
-	grid-template-rows: repeat(3, 11vw);
-	grid-template-columns: repeat(3, 11vw);
-    margin-bottom: 7rem;
+  display: grid;
+  grid-template-rows: repeat(3, 11vw);
+  grid-template-columns: repeat(3, 11vw);
+  margin-bottom: 8rem;
 }
 
 .box {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	font-size: 5vw;
-	font-family: "Play", "Poppins", sans-serif;
-	margin: 0rem;
-    margin-bottom: 0rem;
-    border-radius: 0.15rem;
-	background-color: #d6d6d6c0;
-	color: white;
-	cursor: pointer;
-	/* box-shadow: 0px 5px 7px #1a1a1a; left/right top/bottom blurr spread */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 5vw;
+  font-family: "Play", "Poppins", sans-serif;
+  margin: 0rem;
+  margin-bottom: 0rem;
+  border-radius: 0.15rem;
+  background-color: #d6d6d6c0;
+  color: white;
+  cursor: pointer;
+  /* box-shadow: 0px 5px 7px #1a1a1a; left/right top/bottom blurr spread */
 }
 
-.row1{
-    border-bottom: solid rgb(80, 80, 80) 4px ;
-    border-top: solid rgba(0, 0, 0, 0.8) 5px;
+.row1 {
+  border-bottom: solid rgb(80, 80, 80) 4px;
+  border-top: solid rgba(0, 0, 0, 0.8) 5px;
 }
 
-.row2{
-    border-bottom: solid rgb(80, 80, 80) 4px;
+.row2 {
+  border-bottom: solid rgb(80, 80, 80) 4px;
 }
 
-.row3{
-    border-bottom: solid rgba(0, 0, 0, 0.8) 5px;
+.row3 {
+  border-bottom: solid rgba(0, 0, 0, 0.8) 5px;
 }
 
-.col1{
-    border-right: solid rgb(153, 153, 153) 4px;
-    border-left: solid rgba(0, 0, 0, 0.8) 5px;
+.col1 {
+  border-right: solid rgb(153, 153, 153) 4px;
+  border-left: solid rgba(0, 0, 0, 0.8) 5px;
 }
 
-.col2{
-    border-right: solid rgb(164, 164, 164) 4px;
+.col2 {
+  border-right: solid rgb(164, 164, 164) 4px;
 }
 
-.col3{
-    border-right: solid rgba(0, 0, 0, 0.8) 5px;
+.col3 {
+  border-right: solid rgba(0, 0, 0, 0.8) 5px;
 }
