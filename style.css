@@ -89,12 +89,16 @@
   margin-right: 2vw;
   display: flex;
   flex-direction: column;
+  background-color: white;
 }
 
 .check-button {
   display: flex;
   height: 11vw;
   text-align: center;
+  transition-duration: 0.3s;
+  color: white;
+  font-size: x-large;
 }
 
 .row1 {
@@ -121,4 +125,26 @@
 
 .col3 {
   border-right: solid rgba(0, 0, 0, 0.8) 5px;
+}
+
+.b1{
+}
+
+.b2{
+}
+
+.b3{
+}
+
+
+.b1:hover{
+  background-color: rgb(52, 236, 42);
+}
+
+.b2:hover{
+  background-color: rgb(52, 236, 42);
+}
+
+.b3:hover{
+  background-color: rgb(52, 236, 42);
 }
