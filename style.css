@@ -12,7 +12,7 @@
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
   background-color: #ffffff;
   font-family: "Poppins", "Play", sans-serif;
@@ -74,10 +74,27 @@
   margin: 0rem;
   margin-bottom: 0rem;
   border-radius: 0.15rem;
-  background-color: #d6d6d6c0;
+  background-color: #e3e3e3b6;
   color: white;
   cursor: pointer;
   /* box-shadow: 0px 5px 7px #1a1a1a; left/right top/bottom blurr spread */
+}
+
+.main-grid {
+  display: flex;
+  flex-direction: row;
+}
+
+.checkboxes {
+  margin-right: 2vw;
+  display: flex;
+  flex-direction: column;
+}
+
+.check-button {
+  display: flex;
+  height: 11vw;
+  text-align: center;
 }
 
 .row1 {
