@@ -12,14 +12,48 @@
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: space-evenly;
   align-items: center;
   background-color: #ffffff;
   font-family: "Poppins", "Play", sans-serif;
 }
+
+.top-text{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.tagline-text{
+  font-size: x-large;
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.deposit-text{
+  font-size: small;
+}
+
+.deposit-button{
+  background-color: #ece8ff;
+  margin: 0.5vw;
+  padding: 4px 5px;
+}
+
+.deposit-button:hover{
+  background-color: #6a79ff;
+  color: white;
+  box-shadow: 3px 4px 3px #ece8ff;
+}
+
+.deposit-button:active{
+  box-shadow: 0px 2px 2px #adaabb;
+  transform: translateY(1.5px);
+}
+
 .spin-container {
+  margin-bottom: 4vw;
   text-align: center;
-  margin: auto;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -33,7 +67,7 @@
   font-size: large;
   transition-duration: 0.3s;
   cursor: pointer;
-  padding: 12px 36px;
+  padding: 10px 20px;
   font-weight: bold;
   background-color: #53b5ffee;
   border: 2px solid #2e7eef;
@@ -60,8 +94,8 @@
 
 .game-grid {
   display: grid;
-  grid-template-rows: repeat(3, 11vw);
-  grid-template-columns: repeat(3, 11vw);
+  grid-template-rows: repeat(3, 8vw);
+  grid-template-columns: repeat(3, 8vw);
   margin-bottom: 8rem;
 }
 
@@ -69,7 +103,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 5vw;
+  font-size: 4vw;
   font-family: "Play", "Poppins", sans-serif;
   margin: 0rem;
   margin-bottom: 0rem;
@@ -81,6 +115,7 @@
 }
 
 .main-grid {
+  padding-top: 3vw;
   display: flex;
   flex-direction: row;
 }
@@ -89,12 +124,13 @@
   margin-right: 2vw;
   display: flex;
   flex-direction: column;
-  background-color: white;
+  background-color: rgba(255, 255, 255, 0);
 }
 
 .check-button {
   display: flex;
-  height: 11vw;
+  height: 8vw;
+  width: 3vw;
   text-align: center;
   transition-duration: 0.3s;
   color: white;
@@ -127,24 +163,30 @@
   border-right: solid rgba(0, 0, 0, 0.8) 5px;
 }
 
-.b1{
+.b1:active{
+  transform: translateY(1px);
+  box-shadow: 2px 0px 3px rgb(165, 165, 165);
 }
 
-.b2{
+.b2:active{
+  transform: translateY(1px);
+  box-shadow: 2px 0px 3px rgb(165, 165, 165);
 }
 
-.b3{
+.b3:active{
+  transform: translateY(1px);
+  box-shadow: 2px 0px 3px rgb(165, 165, 165);
 }
 
 
 .b1:hover{
-  background-color: rgb(52, 236, 42);
+  background-color: rgb(155, 255, 150);
 }
 
 .b2:hover{
-  background-color: rgb(52, 236, 42);
+  background-color: rgb(155, 255, 150);
 }
 
 .b3:hover{
-  background-color: rgb(52, 236, 42);
+  background-color: rgb(155, 255, 150);
 }
