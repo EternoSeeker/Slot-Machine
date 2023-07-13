@@ -16,6 +16,7 @@
   align-items: center;
   background-color: #ffffff;
   font-family: "Poppins", "Play", sans-serif;
+  flex-shrink: 0;
 }
 
 .top-text{
@@ -31,12 +32,14 @@
 }
 
 .deposit-text{
+  padding-top: 0.5vw;
   font-size: small;
 }
 
 .deposit-button{
   background-color: #ece8ff;
-  margin: 0.5vw;
+  transition-duration: 0.2s;
+  margin: 1vw;
   padding: 4px 5px;
 }
 
@@ -52,11 +55,13 @@
 }
 
 .spin-container {
-  margin-bottom: 4vw;
+  margin: 2rem;
+  margin-bottom: 3vw;
   text-align: center;
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-shrink: 0;
 }
 
 .spin-button {
@@ -96,7 +101,7 @@
   display: grid;
   grid-template-rows: repeat(3, 8vw);
   grid-template-columns: repeat(3, 8vw);
-  margin-bottom: 8rem;
+  /* margin: 3rem; */
 }
 
 .box {
@@ -118,6 +123,30 @@
   padding-top: 3vw;
   display: flex;
   flex-direction: row;
+}
+
+.balance-container{
+  display: flex;
+  justify-content: center;
+  margin-top: 0.8rem;
+  flex-direction: row;
+  font-size: large;
+}
+
+.balance-value{
+  padding-left: 0.5rem;
+}
+
+.bet-container{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 0.3rem;
+  font-size: large;
+}
+
+.bet-value{
+  padding-left: 0.5rem;
 }
 
 .checkboxes {
