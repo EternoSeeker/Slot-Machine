@@ -28,7 +28,7 @@
   align-items: center;
 }
 
-.tagline-text{
+.heading-text{
   font-size: x-large;
   font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
@@ -57,7 +57,7 @@
 }
 
 .spin-container {
-  margin: 2rem;
+  margin: 1.5rem;
   margin-bottom: 3vw;
   text-align: center;
   display: flex;
@@ -100,7 +100,7 @@
 }
 .main-grid {
   flex-shrink: 0;
-  padding-top: 3vw;
+  padding-top: 2vw;
   display: flex;
   flex-direction: row;
 }
@@ -142,8 +142,8 @@
   display: flex;
   flex-direction: row;
   justify-content: center;
-  margin-top: 0.3rem;
-  font-size: large;
+  margin-top: 0.6rem;
+  font-size: x-large;
 }
 
 .bet-value{
@@ -168,6 +168,33 @@
   transition-duration: 0.3s;
   color: white;
   font-size: x-large;
+  cursor: pointer;
+}
+
+.multiplier-container{
+  color: rgb(0, 110, 40);
+  margin-left: 1vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  font-size: xx-large;
+}
+
+.multiplier-row{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.multiply-val{
+  padding-left: 0.3vw;
+}
+
+.multiply-bet{
+  font-size: x-large;
+  margin-left: 0.5vw;
+  color: black;
 }
 
 .row1 {
