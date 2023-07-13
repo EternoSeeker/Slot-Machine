@@ -9,6 +9,7 @@
 }
 
 .main-div {
+  flex-grow: 1;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -20,6 +21,7 @@
 }
 
 .top-text{
+  margin-top: 0.5rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -96,7 +98,12 @@
   width: fit-content;
   gap: 0.5rem;
 }
-
+.main-grid {
+  flex-shrink: 0;
+  padding-top: 3vw;
+  display: flex;
+  flex-direction: row;
+}
 .game-grid {
   display: grid;
   grid-template-rows: repeat(3, 8vw);
@@ -113,16 +120,10 @@
   margin: 0rem;
   margin-bottom: 0rem;
   border-radius: 0.15rem;
-  background-color: #e3e3e3b6;
-  color: white;
+  background-color: #eeeeeeb6;
+  color: rgb(0, 128, 255);
   cursor: pointer;
   /* box-shadow: 0px 5px 7px #1a1a1a; left/right top/bottom blurr spread */
-}
-
-.main-grid {
-  padding-top: 3vw;
-  display: flex;
-  flex-direction: row;
 }
 
 .balance-container{
@@ -150,17 +151,20 @@
 }
 
 .checkboxes {
-  margin-right: 2vw;
+  margin-right: 1.5vw;
   display: flex;
   flex-direction: column;
+  justify-content: space-around;
   background-color: rgba(255, 255, 255, 0);
 }
 
 .check-button {
   display: flex;
-  height: 8vw;
-  width: 3vw;
+  height: 4vw;
+  width: 2.5vw;
   text-align: center;
+  justify-content: center;
+  align-items: center;
   transition-duration: 0.3s;
   color: white;
   font-size: x-large;
@@ -192,7 +196,7 @@
   border-right: solid rgba(0, 0, 0, 0.8) 5px;
 }
 
-.b1:active{
+/* .b1:active{
   transform: translateY(1px);
   box-shadow: 2px 0px 3px rgb(165, 165, 165);
 }
@@ -205,7 +209,7 @@
 .b3:active{
   transform: translateY(1px);
   box-shadow: 2px 0px 3px rgb(165, 165, 165);
-}
+} */
 
 
 .b1:hover{
