@@ -17,6 +17,8 @@
 const ROWS = 3;
 const COLS = 3;
 
+let numberOfLines = 0;
+
 const SYMBOLS_COUNT = {
   A: 4,
   B: 5,
@@ -31,7 +33,7 @@ const SYMBOLS_VALUES = {
   D: 2,
 };
 
-function deposit(){
+function deposit() {
   while (true) {
     let depositAmount = prompt("Enter a deposit amount: ");
     let numberDepositAmount = parseFloat(depositAmount);
@@ -43,37 +45,49 @@ function deposit(){
       alert("Invalid deposit amount, try again !");
     }
   }
-};
+}
 
-function getNumberOfLines(){
+function getNumberOfLines() {
   while (true) {
     const lines = prompt("Enter the number of lines to bet on (1-3): ");
-    const numberOfLines = parseFloat(lines);
+    num = parseFloat(lines);
 
-    if (isNaN(numberOfLines) || numberOfLines <= 0 || numberOfLines > ROWS) {
-      console.log("Invalid no. of lines, try again !");
+    if (isNaN(num) || num <= 0 || num > ROWS) {
+      alert("Invalid no. of lines, try again !");
     } else {
-      return numberOfLines;
+      return num;
     }
   }
-};
+}
 
-function getBet(balance, lines){
+function getBet() {
+  let balance = document.getElementById("bet-value").innerHTML;
   while (true) {
-    //lines = getNumberOfLines();
+    numberOfLines = getNumberOfLines();
     let bet = prompt("Enter the bet per line: ");
-    let numberBet = parseFloat(bet);
-
-    if (isNaN(numberBet) || numberBet <= 0 || numberBet > balance / lines) {
-      console.log("Invalid Bet, try again !");
+    numberBet = parseFloat(bet);
+    for (let i = 0; i < numberOfLines; i++) {
+      let str = "ch0";
+      str[2] = i + 1;
+      document.getElementById(str).style.backgroundColor = "green";
+      document.getElementById(str).innerHTML = "✓";
+    }
+    if (
+      isNaN(numberBet) ||
+      numberBet <= 0 ||
+      numberBet > balance / numberOfLines
+    ) {
+      alert("Invalid Bet, try again !");
     } else {
-      document.getElementById("bet-value").innerHTML = numberBet * lines;
+      document.getElementsByClassName("bet-value").innerHTML = numberBet * numberOfLines;
+      balance -= numberBet * numberOfLines;
+      document.getElementById("balance").innerHTML = balance;
       return;
     }
   }
-};
+}
 // symbols = [A, A, B, B, B, B.....]
-function spin(){
+function spin() {
   const symbols = [];
   for (const [symbol, count] of Object.entries(SYMBOLS_COUNT)) {
     for (let i = 0; i < count; i++) {
@@ -93,10 +107,10 @@ function spin(){
     }
   }
   return reels;
-};
+}
 //Reels matrix needs to be transposed
 
-function transpose(reels){
+function transpose(reels) {
   const rows = [];
 
   for (let i = 0; i < ROWS; i++) {
@@ -106,9 +120,9 @@ function transpose(reels){
     }
   }
   return rows;
-};
+}
 
-function printRows(rows){
+function printRows(rows) {
   for (const row of rows) {
     let rowString = "";
     for (const [i, symbol] of row.entries()) {
@@ -119,9 +133,9 @@ function printRows(rows){
     }
     console.log(rowString);
   }
-};
+}
 
-function getWinnings(rows, bet, lines){
+function getWinnings(rows, bet, lines) {
   let winningsArr = [0, 0, 0];
   for (let row = 0; row < lines; row++) {
     const symbols = rows[row];
@@ -139,24 +153,24 @@ function getWinnings(rows, bet, lines){
     }
   }
   return winningsArr;
-};
+}
 
-function game(){
-  let balance = deposit();
-  document.getElementById("balance").innerHTML = balance;
-
+function game() {
+  let balance = document.getElementById("bet-value").innerHTML;
   while (true) {
-    console.log("You have a balance of $" + balance);
-    const numberOfLines = getNumberOfLines();
-    const bet = getBet(balance, numberOfLines);
-    balance -= bet * numberOfLines;
+    //console.log("You have a balance of $" + balance);
+    //const bet = getBet(balance, numberOfLines);
+    const bet = document.getElementById("bet-value").innerHTML;
+    // document.getElementById("bet-value").innerHTML = bet * numberOfLines;
+    // balance -= bet * numberOfLines;
+    // document.getElementById("balance").innerHTML = balance;
     const reels = spin();
     const rows = transpose(reels);
     printRows(rows);
     const winningsArr = getWinnings(rows, bet, numberOfLines);
     balance += winningsArr[0];
     document.getElementById("balance").innerHTML = balance;
-    //console.log("You won, $" + winnings.toString());
+    alert("You won, $" + winningsArr[0].toString());
     if (balance <= 0) {
       alert("You ran out of money!");
       break;
@@ -167,6 +181,6 @@ function game(){
     //   break;
     // }
   }
-};
+}
 
 // game();
