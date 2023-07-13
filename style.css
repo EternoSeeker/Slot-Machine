@@ -42,11 +42,11 @@
   background-color: #ece8ff;
   transition-duration: 0.2s;
   margin: 1vw;
-  padding: 4px 5px;
+  padding: 5px 6px;
 }
 
 .deposit-button:hover{
-  background-color: #6a79ff;
+  background-color: #5465ff;
   color: white;
   box-shadow: 3px 4px 3px #ece8ff;
 }
@@ -111,11 +111,13 @@
   /* margin: 3rem; */
 }
 
+
+
 .box {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 4vw;
+  font-size: 4.5vw;
   font-family: "Play", "Poppins", sans-serif;
   margin: 0rem;
   margin-bottom: 0rem;
@@ -142,8 +144,25 @@
   display: flex;
   flex-direction: row;
   justify-content: center;
+  align-items: center;
   margin-top: 0.6rem;
   font-size: x-large;
+}
+
+.get-bet-button{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #e8f5ff;
+  transition-duration: 0.2s;
+  margin: 1vw;
+  padding: 4px 5px;
+}
+
+.get-bet-button:hover{
+  background-color: #2b92ff;
+  color: white;
+  box-shadow: 3px 4px 3px #e8edff;
 }
 
 .bet-value{
@@ -193,7 +212,7 @@
 
 .multiply-bet{
   font-size: x-large;
-  margin-left: 0.5vw;
+  margin-left: 0.6vw;
   color: black;
 }
 

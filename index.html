@@ -17,13 +17,18 @@
       <div class="top-text">
         <span class="heading-text"><h2>SLOT MACHINE</h2></span>
         <span class="deposit-text"> Click here to deposit some money ! </span>
-        <button class="deposit-button" id="deposit">
+        <button class="deposit-button" id="deposit" onclick="deposit()">
           <b>Deposit</b>
         </button>
       </div>
       <div class="bet-container">
         <div><span class="bet-text">Current Bet:</span></div>
-        <div><span class="bet-value">0</span></div>
+        <div><span class="bet-value" id="bet-value">0</span></div>
+        <div>
+          <button class="get-bet-button" id="get-bet" onclick="getBet()">
+            <b>Enter Bet</b>
+          </button>
+        </div>
       </div>
       <div class="main-grid">
         <div class="checkboxes">
@@ -33,7 +38,7 @@
         </div>
         <div class="game-grid">
           <div class="box row1 col1" id="0">
-            <span class="box-symbol"></span>
+            <span class="box-symbol">A</span>
           </div>
           <div class="box row1 col2" id="1">
             <span class="box-symbol"></span>
@@ -80,7 +85,7 @@
       </div>
       <div class="balance-container">
         <div><span class="balance-text">Current Balance:</span></div>
-        <div><span class="balance-value">0</span></div>
+        <div><span class="balance-value" id="balance">0</span></div>
       </div>
       <div class="spin-container">
         <button type="button" class="spin-button">

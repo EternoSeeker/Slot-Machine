@@ -5,7 +5,14 @@
 // 5. Check if the uer won
 // 6. Give user their winnings
 // 7. Play again
-const prompt = require("prompt-sync")();
+// const prompt = require("prompt-sync")();
+
+// function initialDepositAmount() {
+//   let balance = prompt("Please enter deposit amount");
+//   if (balance > 0) {
+//     document.getElementById("balance").innerHTML = balance;
+//   }
+// }
 
 const ROWS = 3;
 const COLS = 3;
@@ -18,26 +25,27 @@ const SYMBOLS_COUNT = {
 };
 
 const SYMBOLS_VALUES = {
-  A: 6,
-  B: 5,
+  A: 8,
+  B: 6,
   C: 4,
-  D: 3,
+  D: 2,
 };
 
-const deposit = () => {
+function deposit(){
   while (true) {
-    const depositAmount = prompt("Enter a deposit amount: ");
-    const numberDepositAmount = parseFloat(depositAmount);
+    let depositAmount = prompt("Enter a deposit amount: ");
+    let numberDepositAmount = parseFloat(depositAmount);
 
-    if (isNaN(numberDepositAmount) || numberDepositAmount <= 0) {
-      console.log("Invalid deposit amount, try again !");
+    if (numberDepositAmount > 0) {
+      document.getElementById("balance").innerHTML = numberDepositAmount;
+      return;
     } else {
-      return numberDepositAmount;
+      alert("Invalid deposit amount, try again !");
     }
   }
 };
 
-const getNumberOfLines = () => {
+function getNumberOfLines(){
   while (true) {
     const lines = prompt("Enter the number of lines to bet on (1-3): ");
     const numberOfLines = parseFloat(lines);
@@ -50,20 +58,22 @@ const getNumberOfLines = () => {
   }
 };
 
-const getBet = (balance, lines) => {
+function getBet(balance, lines){
   while (true) {
-    const bet = prompt("Enter the bet per line: ");
-    const numberBet = parseFloat(bet);
+    //lines = getNumberOfLines();
+    let bet = prompt("Enter the bet per line: ");
+    let numberBet = parseFloat(bet);
 
     if (isNaN(numberBet) || numberBet <= 0 || numberBet > balance / lines) {
       console.log("Invalid Bet, try again !");
     } else {
-      return numberBet;
+      document.getElementById("bet-value").innerHTML = numberBet * lines;
+      return;
     }
   }
 };
 // symbols = [A, A, B, B, B, B.....]
-const spin = () => {
+function spin(){
   const symbols = [];
   for (const [symbol, count] of Object.entries(SYMBOLS_COUNT)) {
     for (let i = 0; i < count; i++) {
@@ -86,7 +96,7 @@ const spin = () => {
 };
 //Reels matrix needs to be transposed
 
-const transpose = (reels) => {
+function transpose(reels){
   const rows = [];
 
   for (let i = 0; i < ROWS; i++) {
@@ -98,7 +108,7 @@ const transpose = (reels) => {
   return rows;
 };
 
-const printRows = (rows) => {
+function printRows(rows){
   for (const row of rows) {
     let rowString = "";
     for (const [i, symbol] of row.entries()) {
@@ -111,8 +121,8 @@ const printRows = (rows) => {
   }
 };
 
-const getWinnings = (rows, bet, lines) => {
-  let winnings = 0;
+function getWinnings(rows, bet, lines){
+  let winningsArr = [0, 0, 0];
   for (let row = 0; row < lines; row++) {
     const symbols = rows[row];
     let allSame = true;
@@ -123,14 +133,17 @@ const getWinnings = (rows, bet, lines) => {
       }
     }
     if (allSame) {
-      winnings += bet * SYMBOLS_VALUES[symbols[0]];
+      winningsArr[0] += bet * SYMBOLS_VALUES[symbols[0]];
+      winningsArr[1] = SYMBOLS_VALUES[symbols[0]];
+      winningsArr[2] = row;
     }
   }
-  return winnings;
+  return winningsArr;
 };
 
-const game = () => {
+function game(){
   let balance = deposit();
+  document.getElementById("balance").innerHTML = balance;
 
   while (true) {
     console.log("You have a balance of $" + balance);
@@ -140,19 +153,20 @@ const game = () => {
     const reels = spin();
     const rows = transpose(reels);
     printRows(rows);
-    const winnings = getWinnings(rows, bet, numberOfLines);
-    balance += winnings;
-    console.log("You won, $" + winnings.toString());
+    const winningsArr = getWinnings(rows, bet, numberOfLines);
+    balance += winningsArr[0];
+    document.getElementById("balance").innerHTML = balance;
+    //console.log("You won, $" + winnings.toString());
     if (balance <= 0) {
-      console.log("You ran out of money!");
+      alert("You ran out of money!");
       break;
     }
-    const playAgain = prompt("Do you want to play again (y/n)? ");
+    // const playAgain = prompt("Do you want to play again (y/n)? ");
 
-    if (playAgain != "y") {
-      break;
-    }
+    // if (playAgain != "y") {
+    //   break;
+    // }
   }
 };
 
-game();
+// game();
