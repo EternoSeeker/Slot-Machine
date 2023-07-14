@@ -7,6 +7,8 @@
 // 7. Play again
 // const prompt = require("prompt-sync")();
 
+// import 'animate.css';
+
 const ROWS = 3;
 const COLS = 3;
 

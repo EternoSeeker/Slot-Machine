@@ -20,6 +20,7 @@
   flex-shrink: 0;
 }
 
+
 .top-text{
   margin-top: 0.5rem;
   display: flex;
@@ -124,6 +125,10 @@
   color: rgb(0, 128, 255);
   cursor: pointer;
   /* box-shadow: 0px 5px 7px #1a1a1a; left/right top/bottom blurr spread */
+}
+
+.box-symbol{
+  transition-duration: 0.3s;
 }
 
 .balance-container{
