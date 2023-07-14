@@ -17,7 +17,8 @@
 const ROWS = 3;
 const COLS = 3;
 
-let numberOfLines = 0;
+// let numberOfLines = 0;
+let isDeposited = false;
 
 const SYMBOLS_COUNT = {
   A: 4,
@@ -47,42 +48,49 @@ function deposit() {
   }
 }
 
-function getNumberOfLines() {
-  while (true) {
-    const lines = prompt("Enter the number of lines to bet on (1-3): ");
-    num = parseFloat(lines);
+// function getNumberOfLines() {
+//   while (true) {
+//     const lines = prompt("Enter the number of lines to bet on (1-3): ");
+//     num = parseFloat(lines);
 
-    if (isNaN(num) || num <= 0 || num > ROWS) {
-      alert("Invalid no. of lines, try again !");
-    } else {
-      return num;
-    }
+//     if (isNaN(num) || num <= 0 || num > ROWS) {
+//       alert("Invalid no. of lines, try again !");
+//     } else {
+//       return num;
+//     }
+//   }
+// }
+
+function clearMultipliers(){
+  let multSymbol = document.getElementsByClassName("multiply-symbol");
+  let multiplierValue = document.getElementsByClassName("multiply-val");
+  let multiplyBet = document.getElementsByClassName("multiply-bet");
+  for(let i = 0; i < 3; i++){
+    multSymbol[i].innerHTML = "";
+    multiplierValue[i].innerHTML ="";
+    multiplyBet[i].innerHTML = "";
   }
 }
 
 function getBet() {
-  let balance = document.getElementById("bet-value").innerHTML;
+  let balance = document.getElementById("balance").innerHTML;
+  clearMultipliers();
   while (true) {
-    numberOfLines = getNumberOfLines();
     let bet = prompt("Enter the bet per line: ");
     numberBet = parseFloat(bet);
-    for (let i = 0; i < numberOfLines; i++) {
-      let str = "ch0";
-      str[2] = i + 1;
-      document.getElementById(str).style.backgroundColor = "green";
-      document.getElementById(str).innerHTML = "✓";
-    }
-    if (
-      isNaN(numberBet) ||
-      numberBet <= 0 ||
-      numberBet > balance / numberOfLines
-    ) {
-      alert("Invalid Bet, try again !");
-    } else {
-      document.getElementsByClassName("bet-value").innerHTML = numberBet * numberOfLines;
-      balance -= numberBet * numberOfLines;
+    // for (let i = 0; i < numberOfLines; i++) {
+    //   let str = "ch0";
+    //   str[2] = i + 1;
+    //   document.getElementById(str).style.backgroundColor = "green";
+    //   document.getElementById(str).innerHTML = "✓";
+    // }
+    if (numberBet > 0 && numberBet < balance) {
+      document.getElementById("bet-value").innerHTML = numberBet;
+      balance -= numberBet;
       document.getElementById("balance").innerHTML = balance;
       return;
+    } else {
+      alert("Invalid Bet, try again !");
     }
   }
 }
@@ -112,7 +120,7 @@ function spin() {
 
 function transpose(reels) {
   const rows = [];
-
+  let count = 0;
   for (let i = 0; i < ROWS; i++) {
     rows.push([]);
     for (let j = 0; j < COLS; j++) {
@@ -122,22 +130,44 @@ function transpose(reels) {
   return rows;
 }
 
-function printRows(rows) {
-  for (const row of rows) {
-    let rowString = "";
-    for (const [i, symbol] of row.entries()) {
-      rowString += symbol;
-      if (i != row.length - 1) {
-        rowString += " | ";
-      }
+function mapRows(rows) {
+  let boxSymbol = document.getElementsByClassName("box-symbol");
+  let count = 0;
+  for (let i = 0; i < 3; i++) {
+    for (let j = 0; j < 3; j++) {
+      boxSymbol[count++].innerHTML = rows[i][j];
     }
-    console.log(rowString);
   }
+  // for (const row of rows) {
+  //   let rowString = "";
+  //   for (const [i, symbol] of row.entries()) {
+  //     rowString += symbol;
+  //     if (i != row.length - 1) {
+  //       rowString += " | ";
+  //     }
+  //   }
+  //   console.log(rowString);
+  // }
 }
 
-function getWinnings(rows, bet, lines) {
-  let winningsArr = [0, 0, 0];
-  for (let row = 0; row < lines; row++) {
+function mapRowsWin(symbolRows){
+  let multSymbol = document.getElementsByClassName("multiply-symbol");
+  let multiplierValue = document.getElementsByClassName("multiply-val");
+  let multiplyBet = document.getElementsByClassName("multiply-bet");
+  for(let i = 3; i < symbolRows.length; i++){
+    if(symbolRows[i - 1] != 0){
+      multSymbol[symbolRows[i - 1]].innerHTML = "×";
+      multiplierValue[symbolRows[i - 1]].innerHTML = SYMBOLS_VALUES[symbolRows[i]];
+      multiplyBet[symbolRows[i - 1]].innerHTML = symbolRows[1] * SYMBOLS_VALUES[symbolRows[i]];
+    }
+  }
+
+}
+
+function getWinnings(rows, bet) {
+  let winSymbol = [0];
+  let rowsNum = [];
+  for (let row = 0; row < 3; row++) {
     const symbols = rows[row];
     let allSame = true;
     for (const symbol of symbols) {
@@ -147,16 +177,23 @@ function getWinnings(rows, bet, lines) {
       }
     }
     if (allSame) {
-      winningsArr[0] += bet * SYMBOLS_VALUES[symbols[0]];
-      winningsArr[1] = SYMBOLS_VALUES[symbols[0]];
-      winningsArr[2] = row;
+      winSymbol[0] += bet * SYMBOLS_VALUES[symbols[0]];
+      winSymbol[1] = bet;
+      rowsNum.push(row);
+      rowsNum.push(symbols[0]);
+    }
+    else{
+      rowsNum.push(0);
+      rowsNum.push(0);
     }
   }
-  return winningsArr;
+  let finalArr = winSymbol.concat(rowsNum);
+  return finalArr;
 }
 
 function game() {
-  let balance = document.getElementById("bet-value").innerHTML;
+  let balance = document.getElementById("balance").innerHTML;
+  clearMultipliers();
   while (true) {
     //console.log("You have a balance of $" + balance);
     //const bet = getBet(balance, numberOfLines);
@@ -166,8 +203,9 @@ function game() {
     // document.getElementById("balance").innerHTML = balance;
     const reels = spin();
     const rows = transpose(reels);
-    printRows(rows);
-    const winningsArr = getWinnings(rows, bet, numberOfLines);
+    mapRows(rows);
+    const winningsArr = getWinnings(rows, bet);
+    mapRowsWin(winningsArr);
     balance += winningsArr[0];
     document.getElementById("balance").innerHTML = balance;
     alert("You won, $" + winningsArr[0].toString());
@@ -176,7 +214,6 @@ function game() {
       break;
     }
     // const playAgain = prompt("Do you want to play again (y/n)? ");
-
     // if (playAgain != "y") {
     //   break;
     // }

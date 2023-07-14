@@ -111,8 +111,6 @@
   /* margin: 3rem; */
 }
 
-
-
 .box {
   display: flex;
   justify-content: center;
@@ -169,27 +167,6 @@
   padding-left: 0.5rem;
 }
 
-.checkboxes {
-  margin-right: 1.5vw;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  background-color: rgba(255, 255, 255, 0);
-}
-
-.check-button {
-  display: flex;
-  height: 4vw;
-  width: 2.5vw;
-  text-align: center;
-  justify-content: center;
-  align-items: center;
-  transition-duration: 0.3s;
-  color: white;
-  font-size: x-large;
-  cursor: pointer;
-}
-
 .multiplier-container{
   color: rgb(0, 110, 40);
   margin-left: 1vw;
@@ -242,7 +219,33 @@
   border-right: solid rgba(0, 0, 0, 0.8) 5px;
 }
 
-/* .b1:active{
+/* 
+.checkboxes {
+  margin-right: 1.5vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  background-color: rgba(255, 255, 255, 0);
+}
+
+.check-button {
+  display: flex;
+  height: 4vw;
+  width: 2.5vw;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  transition-duration: 0.3s;
+  color: white;
+  font-size: x-large;
+  cursor: pointer;
+}
+
+.checkboxes:hover{
+  background-color: rgb(155, 255, 150);
+}
+
+.b1:active{
   transform: translateY(1px);
   box-shadow: 2px 0px 3px rgb(165, 165, 165);
 }
@@ -256,16 +259,3 @@
   transform: translateY(1px);
   box-shadow: 2px 0px 3px rgb(165, 165, 165);
 } */
-
-
-.b1:hover{
-  background-color: rgb(56, 241, 77);
-}
-
-.b2:hover{
-  background-color: rgb(155, 255, 150);
-}
-
-.b3:hover{
-  background-color: rgb(155, 255, 150);
-}
