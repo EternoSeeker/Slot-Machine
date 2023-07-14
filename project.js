@@ -17,17 +17,15 @@ let isDeposited = false;
 let isBetEntered = false;
 
 const SYMBOLS_COUNT = {
-  A: 3,
-  B: 3,
-  C: 4,
-  D: 8,
+  A: 6,
+  B: 7,
+  C: 8,
 };
 
 const SYMBOLS_VALUES = {
   A: 8,
-  B: 6,
-  C: 4,
-  D: 2,
+  B: 4,
+  C: 2,
 };
 
 function deposit() {
@@ -126,13 +124,11 @@ function mapRowsWin(symbolRows) {
   let multSymbol = document.getElementsByClassName("multiply-symbol");
   let multiplierValue = document.getElementsByClassName("multiply-val");
   let multiplyBet = document.getElementsByClassName("multiply-bet");
-  for (let i = 3; i < symbolRows.length; i++) {
-    if (symbolRows[i - 1] != 0) {
+  for (let i = 1; i < symbolRows.length; i += 2) {
+    if(i != 1){
       multSymbol[symbolRows[i - 1]].innerText = "×";
-      multiplierValue[symbolRows[i - 1]].innerText =
-        SYMBOLS_VALUES[symbolRows[i]];
-      multiplyBet[symbolRows[i - 1]].innerText =
-        symbolRows[1] * SYMBOLS_VALUES[symbolRows[i]];
+      multiplierValue[symbolRows[i - 1]].innerText = SYMBOLS_VALUES[symbolRows[i]];
+      multiplyBet[symbolRows[i - 1]].innerText = symbolRows[1] * SYMBOLS_VALUES[symbolRows[i]];
     }
   }
 }
@@ -154,9 +150,6 @@ function getWinnings(rows, bet) {
       winSymbol[1] = bet;
       rowsNum.push(row);
       rowsNum.push(symbols[0]);
-    } else {
-      rowsNum.push(0);
-      rowsNum.push(0);
     }
   }
   let finalArr = winSymbol.concat(rowsNum);
@@ -175,11 +168,11 @@ function game() {
     mapRowsWin(winningsArr);
     balance += parseInt(winningsArr[0]);
     document.getElementById("balance").innerText = balance;
-    setTimeout(() => {
-      alert("You won " + winningsArr[0].toString());
-    }, 10);
     document.getElementById("bet-value").innerText = 0;
     isBetEntered = false;
+    setTimeout(() => {
+      alert("You won " + winningsArr[0].toString());
+    }, 5);
     if (balance <= 0) {
       alert("You ran out of money!\n Deposit amount again !");
     }
