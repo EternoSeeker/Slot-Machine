@@ -7,8 +7,6 @@
 // 7. Play again
 // const prompt = require("prompt-sync")();
 
-// import 'animate.css';
-
 const ROWS = 3;
 const COLS = 3;
 
@@ -17,9 +15,9 @@ let isDeposited = false;
 let isBetEntered = false;
 
 const SYMBOLS_COUNT = {
-  A: 6,
-  B: 7,
-  C: 8,
+  A: 9,
+  B: 12,
+  C: 15,
 };
 
 const SYMBOLS_VALUES = {
@@ -62,7 +60,7 @@ function getBet() {
     while (true) {
       let bet = prompt("Enter the bet per line: ");
       numberBet = parseInt(bet);
-      if (numberBet > 0 && numberBet < balance) {
+      if (numberBet > 0 && numberBet <= balance) {
         document.getElementById("bet-value").innerText = numberBet;
         balance -= numberBet;
         document.getElementById("balance").innerText = balance;
@@ -96,8 +94,8 @@ function spin() {
   }
   return reels;
 }
-//Reels matrix needs to be transposed
 
+//Reels matrix needs to be transposed
 function transpose(reels) {
   const rows = [];
   let count = 0;
@@ -125,16 +123,18 @@ function mapRowsWin(symbolRows) {
   let multiplierValue = document.getElementsByClassName("multiply-val");
   let multiplyBet = document.getElementsByClassName("multiply-bet");
   for (let i = 1; i < symbolRows.length; i += 2) {
-    if(i != 1){
+    if (i != 1) {
       multSymbol[symbolRows[i - 1]].innerText = "×";
-      multiplierValue[symbolRows[i - 1]].innerText = SYMBOLS_VALUES[symbolRows[i]];
-      multiplyBet[symbolRows[i - 1]].innerText = symbolRows[1] * SYMBOLS_VALUES[symbolRows[i]];
+      multiplierValue[symbolRows[i - 1]].innerText =
+        SYMBOLS_VALUES[symbolRows[i]];
+      multiplyBet[symbolRows[i - 1]].innerText =
+        symbolRows[1] * SYMBOLS_VALUES[symbolRows[i]];
     }
   }
 }
 
 function getWinnings(rows, bet) {
-  let winSymbol = [0];
+  let winSymbol = [0, 0];
   let rowsNum = [];
   for (let row = 0; row < 3; row++) {
     const symbols = rows[row];
@@ -166,7 +166,7 @@ function game() {
     mapRows(rows);
     const winningsArr = getWinnings(rows, bet);
     mapRowsWin(winningsArr);
-    balance += parseInt(winningsArr[0]);
+    balance += parseInt(winningsArr[0]) + parseInt(winningsArr[1]);
     document.getElementById("balance").innerText = balance;
     document.getElementById("bet-value").innerText = 0;
     isBetEntered = false;
@@ -174,7 +174,9 @@ function game() {
       alert("You won " + winningsArr[0].toString());
     }, 5);
     if (balance <= 0) {
-      alert("You ran out of money!\n Deposit amount again !");
+      setTimeout(() => {
+        alert("You ran out of money!\nDeposit amount again");
+      }, 10);
     }
   } else {
     alert("1. Deposit some money first\n2. Enter the bet amount");

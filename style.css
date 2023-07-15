@@ -9,9 +9,9 @@
 }
 
 .main-div {
+  display: flex;
   flex-grow: 1;
   min-height: 100vh;
-  display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
@@ -20,58 +20,57 @@
   flex-shrink: 0;
 }
 
-
-.top-text{
-  margin-top: 0.5rem;
+.top-text {
   display: flex;
+  margin-top: 0.5rem;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
-.heading-text{
+.heading-text {
   font-size: x-large;
-  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 }
 
-.deposit-text{
+.deposit-text {
   padding-top: 0.5vw;
   font-size: small;
 }
 
-.deposit-button{
+.deposit-button {
   background-color: #ece8ff;
   transition-duration: 0.2s;
   margin: 1vw;
   padding: 5px 6px;
 }
 
-.deposit-button:hover{
+.deposit-button:hover {
   background-color: #5465ff;
   color: white;
   box-shadow: 3px 4px 3px #ece8ff;
 }
 
-.deposit-button:active{
+.deposit-button:active {
   box-shadow: 0px 2px 2px #adaabb;
   transform: translateY(1.5px);
 }
 
 .spin-container {
+  display: flex;
   margin: 1.5rem;
   margin-bottom: 3vw;
   text-align: center;
-  display: flex;
   justify-content: center;
   align-items: center;
   flex-shrink: 0;
 }
 
 .spin-button {
+  display: flex;
   color: black;
   justify-content: center;
   align-items: center;
-  display: flex;
   font-size: large;
   transition-duration: 0.3s;
   cursor: pointer;
@@ -99,12 +98,14 @@
   width: fit-content;
   gap: 0.5rem;
 }
+
 .main-grid {
+  display: flex;
   flex-shrink: 0;
   padding-top: 2vw;
-  display: flex;
   flex-direction: row;
 }
+
 .game-grid {
   display: grid;
   grid-template-rows: repeat(3, 8vw);
@@ -127,7 +128,7 @@
   /* box-shadow: 0px 5px 7px #1a1a1a; left/right top/bottom blurr spread */
 }
 
-.balance-container{
+.balance-container {
   display: flex;
   justify-content: center;
   margin-top: 0.8rem;
@@ -135,11 +136,11 @@
   font-size: large;
 }
 
-.balance-value{
+.balance-value {
   padding-left: 0.5rem;
 }
 
-.bet-container{
+.bet-container {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -148,7 +149,7 @@
   font-size: x-large;
 }
 
-.get-bet-button{
+.get-bet-button {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -158,37 +159,39 @@
   padding: 4px 5px;
 }
 
-.get-bet-button:hover{
+.get-bet-button:hover {
   background-color: #2b92ff;
   color: white;
   box-shadow: 3px 4px 3px #e8edff;
 }
 
-.bet-value{
+.bet-value {
   padding-left: 0.5rem;
 }
 
-.multiplier-container{
+.multiplier-container {
+  display: flex;
   color: rgb(0, 110, 40);
   margin-left: 1vw;
-  display: flex;
   flex-direction: column;
+  flex-shrink: 0;
   justify-content: space-around;
+  align-items: center;
   font-size: xx-large;
 }
 
-.multiplier-row{
+.multiplier-row {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: flex-start;
 }
 
-.multiply-val{
+.multiply-val {
   padding-left: 0.3vw;
 }
 
-.multiply-bet{
+.multiply-bet {
   font-size: x-large;
   margin-left: 0.6vw;
   color: black;
