@@ -26,6 +26,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  flex-shrink: 0;
 }
 
 .heading-text {
@@ -35,14 +36,14 @@
 
 .deposit-text {
   padding-top: 0.5vw;
-  font-size: small;
+  font-size: medium;
 }
 
 .deposit-button {
   background-color: #ece8ff;
   transition-duration: 0.2s;
   margin: 1vw;
-  padding: 5px 6px;
+  padding: 0.4rem 0.9rem;
 }
 
 .deposit-button:hover {
@@ -56,53 +57,40 @@
   transform: translateY(1.5px);
 }
 
-.spin-container {
+.bet-container {
   display: flex;
-  margin: 1rem;
-  margin-bottom: 3vw;
-  text-align: center;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
-  flex-shrink: 0;
+  margin-top: 0.5rem;
+  font-size: x-large;
 }
 
-.spin-button {
+.get-bet-button {
   display: flex;
-  color: black;
   justify-content: center;
   align-items: center;
-  font-size: large;
-  transition-duration: 0.3s;
-  cursor: pointer;
-  padding: 10px 20px;
-  font-weight: bold;
-  background-color: #53b5ffee;
-  border: 0.2vw solid #2e7eef;
-  border-radius: 0.4vw;
+  background-color: #e8f5ff;
+  transition-duration: 0.2s;
+  margin: 1vw;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
 }
 
-.spin-button:hover {
-  background-color: #2361b9;
+.get-bet-button:hover {
+  background-color: #2b92ff;
   color: white;
-  box-shadow: 0px 5px 8px rgba(144, 146, 159, 0.822);
+  box-shadow: 0.2rem 0.3rem 0.2rem #e8edff;
 }
 
-.spin-button:active {
-  background-color: #2361b9;
-  box-shadow: 0px 3.5px #7e97a4;
-  transform: translateY(2.5px);
-}
-
-.spin-button-contents {
-  display: flex;
-  width: fit-content;
-  gap: 0.5rem;
+.bet-value {
+  padding-left: 0.5rem;
 }
 
 .main-grid {
   display: flex;
   flex-shrink: 0;
-  padding-top: 1vw;
+  /* padding-top: 1rem; */
   flex-direction: row;
 }
 
@@ -120,13 +108,39 @@
   font-size: 4.5vw;
   font-family: "Play", "Poppins", sans-serif;
   text-shadow: 0.1vw 0.1vw 0.2vw #400071cf;
-  margin: 0rem;
-  margin-bottom: 0rem;
-  border-radius: 0.15rem;
+  border-radius: 0.1rem;
   background-color: #eeeeee;
   color: rgb(0, 78, 167);
   cursor: pointer;
-  /* box-shadow: 0px 5px 7px #1a1a1a; left/right top/bottom blurr spread */
+}
+
+.row1 {
+  border-bottom: ridge rgb(80, 80, 80) 0.35vw;
+  border-top: solid rgba(0, 0, 0, 0.8) 0.4vw;
+  box-shadow: inset 0vw 0.3vw 0.8vw #818181;
+}
+
+.row2 {
+  border-bottom: ridge rgb(80, 80, 80) 0.35vw;
+  box-shadow: inset 0vw 0vw 0.8vw #818181;
+}
+
+.row3 {
+  border-bottom: solid rgba(0, 0, 0, 0.8) 0.4vw;
+  box-shadow: inset 0vw -0.3vw 0.8vw #818181;
+}
+
+.col1 {
+  border-right: solid rgb(153, 153, 153) 0.3vw;
+  border-left: solid rgba(0, 0, 0, 0.8) 0.5vw;
+}
+
+.col2 {
+  border-right: solid rgb(164, 164, 164) 0.3vw;
+}
+
+.col3 {
+  border-right: solid rgba(0, 0, 0, 0.8) 0.5vw;
 }
 
 .balance-container {
@@ -138,35 +152,6 @@
 }
 
 .balance-value {
-  padding-left: 0.5rem;
-}
-
-.bet-container {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  margin-top: 0.6rem;
-  font-size: x-large;
-}
-
-.get-bet-button {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #e8f5ff;
-  transition-duration: 0.2s;
-  margin: 1vw;
-  padding: 4px 5px;
-}
-
-.get-bet-button:hover {
-  background-color: #2b92ff;
-  color: white;
-  box-shadow: 3px 4px 3px #e8edff;
-}
-
-.bet-value {
   padding-left: 0.5rem;
 }
 
@@ -198,33 +183,47 @@
   color: black;
 }
 
-.row1 {
-  border-bottom: ridge rgb(80, 80, 80) 0.35vw;
-  border-top: solid rgba(0, 0, 0, 0.8) 0.4vw;
-  box-shadow: inset 0vw 0.3vw 0.8vw #818181;
+.spin-container {
+  display: flex;
+  margin: 0.4rem;
+  margin-bottom: 1rem;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
 }
 
-.row2 {
-  border-bottom: ridge rgb(80, 80, 80) 0.35vw;
-  box-shadow: inset 0vw 0vw 0.8vw #818181;
+.spin-button {
+  display: flex;
+  color: black;
+  justify-content: center;
+  align-items: center;
+  font-size: large;
+  transition-duration: 0.3s;
+  cursor: pointer;
+  padding: 0.7rem 1.4rem;
+  font-weight: bold;
+  background-color: #53b5ffee;
+  border: 0.2vw solid #2e7eef;
+  border-radius: 0.2rem;
 }
 
-.row3 {
-  border-bottom: solid rgba(0, 0, 0, 0.8) 0.4vw;
-  box-shadow: inset 0vw -0.3vw 0.8vw #818181;
+.spin-button:hover {
+  background-color: #2361b9;
+  color: white;
+  box-shadow: 0px 0.3rem 0.6rem rgba(144, 146, 159, 0.822);
 }
 
-.col1 {
-  border-right: solid rgb(153, 153, 153) 0.3vw;
-  border-left: solid rgba(0, 0, 0, 0.8) 0.5vw;
+.spin-button:active {
+  background-color: #2361b9;
+  box-shadow: 0px 0.3rem #7e97a4;
+  transform: translateY(0.2rem);
 }
 
-.col2 {
-  border-right: solid rgb(164, 164, 164) 0.3vw;
-}
-
-.col3 {
-  border-right: solid rgba(0, 0, 0, 0.8) 0.5vw;
+.spin-button-contents {
+  display: flex;
+  width: fit-content;
+  gap: 0.5rem;
 }
 
 /* 
