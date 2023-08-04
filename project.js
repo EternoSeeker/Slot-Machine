@@ -33,7 +33,10 @@ const SYMBOLS_VALUES = {
 // }
 
 function deposit() {
-  while (true) {
+  if(isDeposited){
+    alert('You already have money to play with !');
+  }
+  while (!isDeposited) {
     let depositAmount = prompt("Enter a deposit amount: ");
     let numberDepositAmount = parseFloat(depositAmount);
     if (numberDepositAmount > 0) {
@@ -62,6 +65,7 @@ function getBet() {
   clearMultipliers();
   if (!isDeposited) {
     alert("Deposit some money first !");
+    deposit();
   } else {
     while (true) {
       let bet = prompt("Enter the bet per line: ");
@@ -194,9 +198,15 @@ function game() {
       setTimeout(() => {
         alert("You ran out of money!\nDeposit amount again");
       }, 10);
+      isDeposited=false;
     }
-  } else {
+  }
+  else if(isDeposited){
+    getBet();
+  } 
+  else {
     alert("1. Deposit some money first\n2. Enter the bet amount");
+    deposit();
   }
 }
 
