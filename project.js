@@ -26,6 +26,12 @@ const SYMBOLS_VALUES = {
   C: 2,
 };
 
+// const COLOR_VALUES = {
+//   A: "a",
+//   B: "b",
+//   C: "c",
+// }
+
 function deposit() {
   while (true) {
     let depositAmount = prompt("Enter a deposit amount: ");
@@ -113,10 +119,20 @@ function mapRows(rows) {
   let count = 0;
   for (let i = 0; i < 3; i++) {
     for (let j = 0; j < 3; j++) {
-      boxSymbol[count++].innerText = rows[i][j];
+      boxSymbol[count].innerText = rows[i][j];
+      //boxSymbol[count].classList.add(COLOR_VALUES(rows[i][j]));
+      count++;
     }
   }
 }
+
+// function clearClasses(){
+//   let boxSymbol = document.getElementsByClassName("box-symbol");
+//   for (let i = 0; i < 9; i++) {
+//     let letter = boxSymbol[i].innerText;
+//     boxSymbol[i].classList.remove(COLOR_VALUES(letter));
+//   }
+// }
 
 function mapRowsWin(symbolRows) {
   let multSymbol = document.getElementsByClassName("multiply-symbol");
@@ -158,6 +174,7 @@ function getWinnings(rows, bet) {
 
 function game() {
   clearMultipliers();
+  //clearClasses();
   let balance = parseInt(document.getElementById("balance").innerText);
   if (isDeposited && isBetEntered) {
     const bet = parseInt(document.getElementById("bet-value").innerText);
