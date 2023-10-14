@@ -42,14 +42,14 @@
 .deposit-button {
   background-color: #ece8ff;
   transition-duration: 0.2s;
-  margin: 1vw;
+  margin: 1vh;
   padding: 0.4rem 0.9rem;
 }
 
 .deposit-button:hover {
   background-color: #5465ff;
   color: white;
-  box-shadow: 3px 4px 3px #ece8ff;
+  box-shadow: 0.2rem 0.3rem 0.3rem #ece8ff;
 }
 
 .deposit-button:active {
@@ -72,7 +72,7 @@
   align-items: center;
   background-color: #e8f5ff;
   transition-duration: 0.2s;
-  margin: 1vw;
+  margin: 1vh;
   padding: 0.5rem 1rem;
   font-size: 1rem;
 }
@@ -96,8 +96,10 @@
 
 .game-grid {
   display: grid;
-  grid-template-rows: repeat(3, 8vw);
-  grid-template-columns: repeat(3, 8vw);
+  margin: auto;
+  min-width: 100px;
+  grid-template-rows: repeat(3, 11vh);
+  grid-template-columns: repeat(3, 11vh);
   /* margin: 3rem; */
 }
 
@@ -105,9 +107,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 4.5vw;
+  font-size: 3rem;
   font-family: "Play", "Poppins", sans-serif;
-  text-shadow: 0.1vw 0.1vw 0.2vw #400071cf;
+  text-shadow: 0.1vh 0.1vh 0.2vh #400071cf;
   border-radius: 0.1rem;
   background-color: #eeeeee;
   color: rgb(0, 78, 167);
@@ -115,50 +117,55 @@
 }
 
 .row1 {
-  border-bottom: ridge rgb(80, 80, 80) 0.35vw;
-  border-top: solid rgba(0, 0, 0, 0.8) 0.4vw;
-  box-shadow: inset 0vw 0.3vw 0.8vw #818181;
+  border-bottom: ridge rgb(80, 80, 80) 0.35vh;
+  border-top: solid rgba(0, 0, 0, 0.8) 0.4vh;
+  box-shadow: inset 0vh 0.3vh 0.8vh #818181;
 }
 
 .row2 {
-  border-bottom: ridge rgb(80, 80, 80) 0.35vw;
-  box-shadow: inset 0vw 0vw 0.8vw #818181;
+  border-bottom: ridge rgb(80, 80, 80) 0.35vh;
+  box-shadow: inset 0vh 0vh 0.8vh #818181;
 }
 
 .row3 {
-  border-bottom: solid rgba(0, 0, 0, 0.8) 0.4vw;
-  box-shadow: inset 0vw -0.3vw 0.8vw #818181;
+  border-bottom: solid rgba(0, 0, 0, 0.8) 0.4vh;
+  box-shadow: inset 0vh -0.3vh 0.8vh #818181;
 }
 
 .col1 {
-  border-right: solid rgb(153, 153, 153) 0.3vw;
-  border-left: solid rgba(0, 0, 0, 0.8) 0.5vw;
+  border-right: solid rgb(153, 153, 153) 0.3vh;
+  border-left: solid rgba(0, 0, 0, 0.8) 0.5vh;
 }
 
 .col2 {
-  border-right: solid rgb(164, 164, 164) 0.3vw;
+  border-right: solid rgb(164, 164, 164) 0.3vh;
 }
 
 .col3 {
-  border-right: solid rgba(0, 0, 0, 0.8) 0.5vw;
+  border-right: solid rgba(0, 0, 0, 0.8) 0.5vh;
 }
 
 .balance-container {
   display: flex;
   justify-content: center;
-  margin-top: 0.8rem;
+  margin-top: 0.5rem;
   flex-direction: row;
   font-size: large;
 }
 
+.balance-text {
+  width: 70%;
+}
+
 .balance-value {
   padding-left: 0.5rem;
+  width: 30%
 }
 
 .multiplier-container {
   display: flex;
   color: rgb(0, 110, 40);
-  margin-left: 1vw;
+  margin-left: 1vh;
   flex-direction: column;
   flex-shrink: 0;
   justify-content: space-around;
