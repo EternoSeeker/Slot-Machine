@@ -181,7 +181,7 @@
 }
 
 .multiply-val {
-  padding-left: 0.3vw;
+  padding-left: 0.3rem;
 }
 
 .multiply-bet {
@@ -208,7 +208,7 @@
   font-size: large;
   transition-duration: 0.3s;
   cursor: pointer;
-  padding: 0.7rem 1.4rem;
+  padding: 0.6rem 1.4rem;
   font-weight: bold;
   background-color: #53b5ffee;
   border: 0.2vw solid #2e7eef;

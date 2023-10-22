@@ -130,14 +130,6 @@ function mapRows(rows) {
   }
 }
 
-// function clearClasses(){
-//   let boxSymbol = document.getElementsByClassName("box-symbol");
-//   for (let i = 0; i < 9; i++) {
-//     let letter = boxSymbol[i].innerText;
-//     boxSymbol[i].classList.remove(COLOR_VALUES(letter));
-//   }
-// }
-
 function mapRowsWin(symbolRows) {
   let multSymbol = document.getElementsByClassName("multiply-symbol");
   let multiplierValue = document.getElementsByClassName("multiply-val");
@@ -193,7 +185,7 @@ function game() {
     isBetEntered = false;
     setTimeout(() => {
       alert("You won " + winningsArr[0].toString());
-    }, 5);
+    }, 20);
     if (balance <= 0) {
       setTimeout(() => {
         alert("You ran out of money!\nDeposit amount again");
@@ -211,6 +203,14 @@ function game() {
 }
 
 // game();
+
+// function clearClasses(){
+//   let boxSymbol = document.getElementsByClassName("box-symbol");
+//   for (let i = 0; i < 9; i++) {
+//     let letter = boxSymbol[i].innerText;
+//     boxSymbol[i].classList.remove(COLOR_VALUES(letter));
+//   }
+// }
 
 // function initialDepositAmount() {
 //   let balance = prompt("Please enter deposit amount");
@@ -235,7 +235,6 @@ function game() {
 //   while (true) {
 //     const lines = prompt("Enter the number of lines to bet on (1-3): ");
 //     num = parseFloat(lines);
-
 //     if (isNaN(num) || num <= 0 || num > ROWS) {
 //       alert("Invalid no. of lines, try again !");
 //     } else {
