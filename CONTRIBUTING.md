@@ -1,5 +1,11 @@
 ## Contributing
 ### Steps to contribute:
+#### Issues
+
+- Raise an issue in Issues section if you want to make any enhancement, or found a bug, or wish to add a feature
+- Check if anyone else is working on same issue, if not you may submit a Pull Request for the same
+
+#### Pull Request
 
 - Fork the repository by clicking the "Fork" button in the upper right corner of this page.
 - Clone repository to your local machine:
@@ -25,3 +31,5 @@ If you find any bugs or have any suggestions, please open an issue on GitHub and
 Visit the issues section to work on existing issues or create your own and work on it.
 
 ## Work to be done
+- [ ] Dialog boxes in place of normal prompts
+- [ ] Animation for letters when they appear after SPIN button is clicked
