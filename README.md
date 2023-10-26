@@ -9,6 +9,16 @@ A basic slot machine game in plain html, css, javascript
 - If the letters on any line match, the bet amount multiplied by respective multiplier of the letter gets added to the current balance
 - A × 8; B × 4; C × 2;
 
+## Screenshots
+**Initially:** 
+
+<img src="images/slotmachine1.png" alt="start image" width="500">
+
+Winning on "C":
+
+<img src="images/slotmachine2.png" alt="win bet on c" width="450">
+
+
 ## Contributing
 ### Steps to contribute:
 
