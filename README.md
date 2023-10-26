@@ -1,5 +1,14 @@
 # Slot-Machine
 A basic slot machine game in plain html, css, javascript
+## How to play ?
+#### [Play Here](https://eternoseeker.github.io/Slot-Machine/)
+
+1. Deposit an amount by entering a number
+2. Enter value for the bet ( bet will be placed on every line )
+3. Click the SPIN button to spin the slot machine
+- If the letters on any line match, the bet amount multiplied by respective multiplier of the letter gets added to the current balance
+- A × 8; B × 4; C × 2;
+
 ## Contributing
 ### Steps to contribute:
 
