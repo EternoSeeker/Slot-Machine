@@ -233,6 +233,11 @@
   gap: 0.5rem;
 }
 
+.spin-image {
+  height: 25px;
+  width: 25px;
+}
+
 /* .a{
   color: rgb(0, 78, 167);
 }
