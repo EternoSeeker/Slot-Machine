@@ -8,7 +8,17 @@
   box-sizing: border-box;
 }
 
+body {
+  background-image: url("./images/slot_machine_background.jpg");
+  background: brightness(70%);
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
 .main-div {
+  background-image: url("./images/slot_machine_background.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
   display: flex;
   flex-grow: 1;
   min-height: 100vh;
@@ -159,7 +169,7 @@
 
 .balance-value {
   padding-left: 0.5rem;
-  width: 30%
+  width: 30%;
 }
 
 .multiplier-container {
@@ -294,7 +304,8 @@
     transform: rotate(0deg);
   }
   100% {
-    transform: rotate(360deg); /* Adjust the number of degrees for a full rotation */
+    transform: rotate(
+      360deg
+    ); /* Adjust the number of degrees for a full rotation */
   }
 }
-
