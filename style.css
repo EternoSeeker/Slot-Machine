@@ -285,3 +285,16 @@
   transform: translateY(1px);
   box-shadow: 2px 0px 3px rgb(165, 165, 165);
 } */
+.spin-button:hover .spin-image {
+  animation: spin 0.5s linear infinite; /* Adjust the animation duration as needed */
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg); /* Adjust the number of degrees for a full rotation */
+  }
+}
+
