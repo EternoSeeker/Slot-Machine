@@ -6,11 +6,9 @@
 // 6. Give user their winnings
 // 7. Play again
 // const prompt = require("prompt-sync")();
-
 const ROWS = 3;
 const COLS = 3;
 
-// let numberOfLines = 0;
 let isDeposited = false;
 let isBetEntered = false;
 
@@ -26,34 +24,33 @@ const SYMBOLS_VALUES = {
   C: 2,
 };
 
-// const COLOR_VALUES = {
-//   A: "a",
-//   B: "b",
-//   C: "c",
-// }
-
 function deposit() {
-  if(isDeposited){
-    alert('You already have money to play with !');
+  if (isDeposited) {
+    alert('You already have money to play with!');
+    return;
   }
+
   while (!isDeposited) {
     let depositAmount = prompt("Enter a deposit amount: ");
     let numberDepositAmount = parseFloat(depositAmount);
+    
     if (numberDepositAmount > 0) {
-      document.getElementById("balance").innerHTML = numberDepositAmount;
+      document.getElementById("balance").innerText = numberDepositAmount;
       isDeposited = true;
       return;
     } else {
-      alert("Invalid deposit amount, try again !");
+      alert("Invalid deposit amount, try again!");
     }
   }
 }
 
 function clearMultipliers() {
+  // Clear the displayed multipliers on the screen
   let multSymbol = document.getElementsByClassName("multiply-symbol");
   let multiplierValue = document.getElementsByClassName("multiply-val");
   let multiplyBet = document.getElementsByClassName("multiply-bet");
-  for (let i = 0; i < 3; i++) {
+
+  for (let i = 0; i < multSymbol.length; i++) {
     multSymbol[i].innerText = "";
     multiplierValue[i].innerText = "";
     multiplyBet[i].innerText = "";
@@ -63,13 +60,15 @@ function clearMultipliers() {
 function getBet() {
   let balance = parseInt(document.getElementById("balance").innerText);
   clearMultipliers();
+
   if (!isDeposited) {
-    alert("Deposit some money first !");
+    alert("Deposit some money first!");
     deposit();
   } else {
     while (true) {
       let bet = prompt("Enter the bet per line: ");
-      numberBet = parseInt(bet);
+      let numberBet = parseInt(bet);
+
       if (numberBet > 0 && numberBet <= balance) {
         document.getElementById("bet-value").innerText = numberBet;
         balance -= numberBet;
@@ -77,24 +76,28 @@ function getBet() {
         isBetEntered = true;
         return;
       } else {
-        alert("Invalid Bet, try again !");
+        alert("Invalid Bet, try again!");
       }
     }
   }
 }
-// symbols = [A, A, B, B, B, B.....]
+
 function spin() {
+  // Generate a matrix of random symbols for the slot machine
   const symbols = [];
+
   for (const [symbol, count] of Object.entries(SYMBOLS_COUNT)) {
     for (let i = 0; i < count; i++) {
       symbols.push(symbol);
     }
   }
-  //Each nested array is column here
+
   const reels = [];
+
   for (let i = 0; i < COLS; i++) {
     reels.push([]);
     const reelSymbols = [...symbols];
+
     for (let j = 0; j < ROWS; j++) {
       const randomIndex = Math.floor(Math.random() * reelSymbols.length);
       const selectedSymbol = reelSymbols[randomIndex];
@@ -102,61 +105,67 @@ function spin() {
       reelSymbols.splice(randomIndex, 1);
     }
   }
+
   return reels;
 }
 
-//Reels matrix needs to be transposed
 function transpose(reels) {
+  // Transpose the matrix of symbols
   const rows = [];
-  let count = 0;
+
   for (let i = 0; i < ROWS; i++) {
     rows.push([]);
+
     for (let j = 0; j < COLS; j++) {
       rows[i].push(reels[j][i]);
     }
   }
+
   return rows;
 }
 
 function mapRows(rows) {
+  // Display the symbols on the screen
   let boxSymbol = document.getElementsByClassName("box-symbol");
   let count = 0;
-  for (let i = 0; i < 3; i++) {
-    for (let j = 0; j < 3; j++) {
+
+  for (let i = 0; i < ROWS; i++) {
+    for (let j = 0; j < COLS; j++) {
       boxSymbol[count].innerText = rows[i][j];
-      //boxSymbol[count].classList.add(COLOR_VALUES(rows[i][j]));
       count++;
     }
   }
 }
 
 function mapRowsWin(symbolRows) {
+  // Display winning multipliers and calculations
   let multSymbol = document.getElementsByClassName("multiply-symbol");
   let multiplierValue = document.getElementsByClassName("multiply-val");
   let multiplyBet = document.getElementsByClassName("multiply-bet");
-  for (let i = 1; i < symbolRows.length; i += 2) {
-    if (i != 1) {
-      multSymbol[symbolRows[i - 1]].innerText = "×";
-      multiplierValue[symbolRows[i - 1]].innerText =
-        SYMBOLS_VALUES[symbolRows[i]];
-      multiplyBet[symbolRows[i - 1]].innerText =
-        symbolRows[1] * SYMBOLS_VALUES[symbolRows[i]];
-    }
+
+  for (let i = 0; i < symbolRows.length; i += 2) {
+    multSymbol[symbolRows[i]].innerText = "×";
+    multiplierValue[symbolRows[i]].innerText = SYMBOLS_VALUES[symbolRows[i + 1]];
+    multiplyBet[symbolRows[i]].innerText = symbolRows[i] * SYMBOLS_VALUES[symbolRows[i + 1]];
   }
 }
 
 function getWinnings(rows, bet) {
+  // Determine the winnings
   let winSymbol = [0, 0];
   let rowsNum = [];
-  for (let row = 0; row < 3; row++) {
+
+  for (let row = 0; row < ROWS; row++) {
     const symbols = rows[row];
     let allSame = true;
+
     for (const symbol of symbols) {
-      if (symbol != symbols[0]) {
+      if (symbol !== symbols[0]) {
         allSame = false;
         break;
       }
     }
+
     if (allSame) {
       winSymbol[0] += bet * SYMBOLS_VALUES[symbols[0]];
       winSymbol[1] = bet;
@@ -164,14 +173,15 @@ function getWinnings(rows, bet) {
       rowsNum.push(symbols[0]);
     }
   }
+
   let finalArr = winSymbol.concat(rowsNum);
   return finalArr;
 }
 
 function game() {
   clearMultipliers();
-  //clearClasses();
   let balance = parseInt(document.getElementById("balance").innerText);
+
   if (isDeposited && isBetEntered) {
     const bet = parseInt(document.getElementById("bet-value").innerText);
     const reels = spin();
@@ -183,62 +193,22 @@ function game() {
     document.getElementById("balance").innerText = balance;
     document.getElementById("bet-value").innerText = 0;
     isBetEntered = false;
+
     setTimeout(() => {
       alert("You won " + winningsArr[0].toString());
     }, 20);
+
     if (balance <= 0) {
       setTimeout(() => {
         alert("You ran out of money!\nDeposit amount again");
       }, 10);
-      isDeposited=false;
+      isDeposited = false;
     }
-  }
-  else if(isDeposited){
+  } else if (isDeposited) {
     getBet();
-  } 
-  else {
+  } else {
     alert("1. Deposit some money first\n2. Enter the bet amount");
     deposit();
   }
 }
 
-// game();
-
-// function clearClasses(){
-//   let boxSymbol = document.getElementsByClassName("box-symbol");
-//   for (let i = 0; i < 9; i++) {
-//     let letter = boxSymbol[i].innerText;
-//     boxSymbol[i].classList.remove(COLOR_VALUES(letter));
-//   }
-// }
-
-// function initialDepositAmount() {
-//   let balance = prompt("Please enter deposit amount");
-//   if (balance > 0) {
-//     document.getElementById("balance").innerHTML = balance;
-//   }
-// }
-
-// while (true) {
-//console.log("You have a balance of $" + balance);
-//const bet = getBet(balance, numberOfLines);
-// document.getElementById("bet-value").innerHTML = bet * numberOfLines;
-// balance -= bet * numberOfLines;
-// document.getElementById("balance").innerHTML = balance;
-// const playAgain = prompt("Do you want to play again (y/n)? ");
-// if (playAgain != "y") {
-//   break;
-// }
-// }
-
-// function getNumberOfLines() {
-//   while (true) {
-//     const lines = prompt("Enter the number of lines to bet on (1-3): ");
-//     num = parseFloat(lines);
-//     if (isNaN(num) || num <= 0 || num > ROWS) {
-//       alert("Invalid no. of lines, try again !");
-//     } else {
-//       return num;
-//     }
-//   }
-// }
