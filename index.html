@@ -13,11 +13,23 @@
     ></script>
   </head>
   <body>
+    <section class="prompt_sec">
+        <div class="prompt_div">
+          <h2 class="prompt_h2" style="color:#fff;text-align: center;">s</h2>
+            <div>
+              <input class="money_inp" placeholder="enter amount" type="text">
+            </div>
+            <div>
+              <button onclick="storeData()">Ok</button>
+              <button onclick="removePrompt()">Cancel</button>
+            </div>
+        </div>
+    </section>
     <div class="main-div">
       <div class="top-text">
         <span class="heading-text"><h2>SLOT MACHINE</h2></span>
         <span class="deposit-text"> Click here to deposit some money ! </span>
-        <button class="deposit-button" id="deposit" onclick="deposit()">
+        <button class="deposit-button" id="deposit" onclick="deposit('deposit_amount')">
           <b>Deposit</b>
         </button>
       </div>
@@ -25,7 +37,7 @@
         <div><span class="bet-text">Current Bet:</span></div>
         <div><span class="bet-value" id="bet-value">0</span></div>
         <div>
-          <button class="get-bet-button" id="get-bet" onclick="getBet()">
+          <button class="get-bet-button" id="get-bet" onclick="getBet('bet_amount')">
             <b>Enter Bet</b>
           </button>
         </div>
