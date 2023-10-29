@@ -181,6 +181,7 @@ body {
   justify-content: space-around;
   align-items: center;
   font-size: large;
+  -webkit-text-stroke: 0.5px white;
 }
 
 .multiplier-row {
@@ -197,7 +198,8 @@ body {
 .multiply-bet {
   font-size: large;
   margin-left: 0.6vw;
-  color: black;
+  color: white;
+  -webkit-text-stroke-width: 0;
 }
 
 .spin-container {
