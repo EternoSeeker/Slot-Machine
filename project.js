@@ -33,7 +33,7 @@ function deposit() {
   while (!isDeposited) {
     let depositAmount = prompt("Enter a deposit amount: ");
     let numberDepositAmount = parseFloat(depositAmount);
-    
+
     if (numberDepositAmount > 0) {
       document.getElementById("balance").innerText = numberDepositAmount;
       isDeposited = true;
@@ -143,10 +143,12 @@ function mapRowsWin(symbolRows) {
   let multiplierValue = document.getElementsByClassName("multiply-val");
   let multiplyBet = document.getElementsByClassName("multiply-bet");
 
-  for (let i = 0; i < symbolRows.length; i += 2) {
-    multSymbol[symbolRows[i]].innerText = "×";
-    multiplierValue[symbolRows[i]].innerText = SYMBOLS_VALUES[symbolRows[i + 1]];
-    multiplyBet[symbolRows[i]].innerText = symbolRows[i] * SYMBOLS_VALUES[symbolRows[i + 1]];
+  for (let i = 3; i < symbolRows.length; i += 2) {
+    multSymbol[symbolRows[i - 1]].innerText = "×";
+    multiplierValue[symbolRows[i - 1]].innerText =
+      SYMBOLS_VALUES[symbolRows[i]];
+    multiplyBet[symbolRows[i - 1]].innerText =
+      symbolRows[1] * SYMBOLS_VALUES[symbolRows[i]];
   }
 }
 
