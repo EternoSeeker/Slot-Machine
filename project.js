@@ -32,20 +32,119 @@ const SYMBOLS_VALUES = {
 //   C: "c",
 // }
 
-function deposit() {
-  if(isDeposited){
-    alert('You already have money to play with !');
+//alert function
+ window.alert=function(msg){
+  const alert=document.createElement('div')
+  const alertBtn=document.createElement('button');
+  alertBtn.innerHTML="Ok"
+  alert.setAttribute('style',`
+      position:absolute;
+      top:5rem;
+      padding:2rem;
+      color:black;
+      border-radius:1rem;
+      box-shadow:2px 2px 6px rgba(0,0,0,0.3);
+      background:#fff;
+      display:flex;
+      align-items:center;
+      flex-direction:column;
+      
+  `)
+  alertBtn.setAttribute('style',`
+      margin-top:2rem ;
+      height:2rem;
+      width:6rem;
+      background:#58acf5;
+      color:#fff;
+      border:none;
+      cursor:pointer;
+
+  `)
+  alert.innerHTML=`<span>${msg}</span>`
+  alert.appendChild(alertBtn)
+  alertBtn.addEventListener("click",(e)=>{
+    alert.remove();
+  })
+  let alertContainer=document.createElement('section')
+  alertContainer.setAttribute('style',`
+       width:100%;
+       display:flex;
+       justify-content:center;
+  `)
+  alertContainer.appendChild(alert)
+  document.body.appendChild(alertContainer)
+
+ }
+//-----(end of alert func)--------
+function removePrompt(){
+  let promptSec=document.querySelector('.prompt_sec')
+  promptSec.style.display="none"
+}
+let Btnflag=true;
+
+function showPrompt(data){
+  let promptSec=document.querySelector('.prompt_sec')
+  promptSec.style.display="flex"
+  if(data==="deposit_amount"){
+      document.querySelector('.prompt_h2').innerHTML="Enter deposit amount"
+  }else{
+    document.querySelector('.prompt_h2').innerHTML="Enter bet amount"
+    Btnflag=false;
+    // document.querySelector('.money_inp').vlaue=" ";
   }
-  while (!isDeposited) {
-    let depositAmount = prompt("Enter a deposit amount: ");
-    let numberDepositAmount = parseFloat(depositAmount);
-    if (numberDepositAmount > 0) {
+}
+
+
+function storeData(){
+  let promptSec=document.querySelector('.prompt_sec')
+  if(Btnflag){
+    let depositAmount=document.querySelector('.money_inp').value;
+    let  numberDepositAmount=parseFloat(depositAmount)
+
+    if (numberDepositAmount> 0) {
       document.getElementById("balance").innerHTML = numberDepositAmount;
       isDeposited = true;
-      return;
+  
+      document.querySelector('.money_inp').value=" ";
+      promptSec.style.display="none"
+      
     } else {
       alert("Invalid deposit amount, try again !");
     }
+  }
+  else{
+    let betAmount=document.querySelector('.money_inp').value;
+      let numberBet = parseInt(betAmount);
+      
+      
+      let balance= document.getElementById("balance").innerHTML
+      console.log(balance)
+      if (numberBet > 0 && numberBet <= balance) {
+        document.getElementById("bet-value").innerText = numberBet;
+        balance -= numberBet;
+        document.getElementById("balance").innerText = balance;
+        isBetEntered = true;
+        promptSec.style.display="none"
+      
+      } else {
+        promptSec.style.display="none"
+        alert("Invalid Bet, try again !");
+      }
+    
+  
+  }
+}
+
+// prompt function
+
+
+//------end of(propmpt)------
+function deposit(data) {
+  if(isDeposited){
+    alert('You already have money to play with !');
+  }
+  else{
+    showPrompt(data)
   }
 }
 
@@ -60,26 +159,14 @@ function clearMultipliers() {
   }
 }
 
-function getBet() {
+function getBet(data) {
   let balance = parseInt(document.getElementById("balance").innerText);
   clearMultipliers();
   if (!isDeposited) {
     alert("Deposit some money first !");
-    deposit();
+    deposit("deposit_amount");
   } else {
-    while (true) {
-      let bet = prompt("Enter the bet per line: ");
-      numberBet = parseInt(bet);
-      if (numberBet > 0 && numberBet <= balance) {
-        document.getElementById("bet-value").innerText = numberBet;
-        balance -= numberBet;
-        document.getElementById("balance").innerText = balance;
-        isBetEntered = true;
-        return;
-      } else {
-        alert("Invalid Bet, try again !");
-      }
-    }
+    showPrompt(data)
   }
 }
 // symbols = [A, A, B, B, B, B.....]

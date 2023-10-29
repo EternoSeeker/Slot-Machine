@@ -14,7 +14,42 @@ body {
   color: white;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
+.prompt_sec{
+    width: 100%;
+    position: absolute;
+    top: 5rem;
+    display: none;
 
+    justify-content: center;
+
+}
+.prompt_div{
+    width:80%;
+    max-width: 20rem;
+    background-color: #272727;
+    padding: 2rem 1rem;
+    border-radius: 1rem;
+}
+.prompt_div div{
+  display: flex;
+  justify-content: space-between;
+}
+.prompt_div div input{
+  width: 100%;
+  height: 2rem;
+  margin: 1rem;
+  outline: none;
+}
+.prompt_div div button{
+  max-width: 5rem;
+  width: 60%;
+  margin: 0.1rem 2rem;
+  height: 1.8rem;
+  color: #fff;
+  background-color: #58acf5;
+  border: none;
+  cursor: pointer;
+}
 .main-div {
   background-image: url("./images/slot_machine_background.jpg");
   background-size: cover;
