@@ -296,16 +296,87 @@ body {
   box-shadow: 2px 0px 3px rgb(165, 165, 165);
 } */
 .spin-button:hover .spin-image {
-  animation: spin 0.5s linear infinite; /* Adjust the animation duration as needed */
+  animation: spin 0.5s linear infinite;
+  /* Adjust the animation duration as needed */
 }
 
 @keyframes spin {
   0% {
     transform: rotate(0deg);
   }
+
   100% {
-    transform: rotate(
-      360deg
-    ); /* Adjust the number of degrees for a full rotation */
+    transform: rotate(360deg);
+    /* Adjust the number of degrees for a full rotation */
   }
+}
+
+
+#navbar {
+  width: 100vw;
+  height: 50;
+  background: #4D4C7D;
+  display: flex;
+  justify-content: space-between;
+
+}
+
+#navbar a {
+  margin-left: 5%;
+  text-decoration: none;
+  color: inherit;
+}
+
+#navbar ul {
+  width: auto;
+  list-style-type: none;
+  color: white;
+  display: flex;
+  gap: 40px;
+  flex-wrap: wrap;
+  padding-top: 15px;
+  margin-right: 5%;
+
+}
+
+#navbar ul li {
+  cursor: pointer;
+  font-size: 20px;
+}
+
+#navbar ul li:hover {
+  font-style: italic;
+}
+
+.footer {
+  width: 170px;
+  list-style-type: none;
+  text-align: center;
+  align-items: center;
+}
+
+.foot {
+  display: flex;
+  justify-content: space-between;
+  font-family: sans-serif;
+}
+
+.connect {
+  color: #f7f7f7;
+  background: transparent;
+  text-align: center;
+  font-family: sans-serif;
+  padding: 10px;
+}
+
+.icon {
+  height: 30px;
+  width: 30px;
+  padding: 5px;
+}
+
+.iconAlign {
+  text-align: center;
+  padding: 10px;
+  background: #4D4C7D;
 }

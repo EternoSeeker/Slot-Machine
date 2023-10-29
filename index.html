@@ -1,104 +1,123 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Slot Machine</title>
-    <link rel="stylesheet" href="./style.css" />
-    <link rel="shortcut icon" href="images/slotmachine_fav.png" type="image/x-icon">
-    <!-- Font Awesome -->
-    <script
-      src="https://kit.fontawesome.com/7f2ff08db3.js"
-      crossorigin="anonymous"
-    ></script>
-  </head>
-  <body>
-    <div class="main-div">
-      <div class="top-text">
-        <span class="heading-text"><h2>SLOT MACHINE</h2></span>
-        <span class="deposit-text"> Click here to deposit some money ! </span>
-        <button class="deposit-button" id="deposit" onclick="deposit()">
-          <b>Deposit</b>
-        </button>
-      </div>
-      <div class="bet-container">
-        <div><span class="bet-text">Current Bet:</span></div>
-        <div><span class="bet-value" id="bet-value">0</span></div>
-        <div>
-          <button class="get-bet-button" id="get-bet" onclick="getBet()">
-            <b>Enter Bet</b>
-          </button>
-        </div>
-      </div>
-      <div class="main-grid">
-        <div class="game-grid">
-          <div class="box row1 col1" id="0">
-            <span class="box-symbol"></span>
-          </div>
-          <div class="box row1 col2" id="1">
-            <span class="box-symbol"></span>
-          </div>
-          <div class="box row1 col3" id="2">
-            <span class="box-symbol"></span>
-          </div>
-          <div class="box row2 col1" id="3">
-            <span class="box-symbol"></span>
-          </div>
-          <div class="box row2 col2" id="4">
-            <span class="box-symbol"></span>
-          </div>
-          <div class="box row2 col3" id="5">
-            <span class="box-symbol"></span>
-          </div>
-          <div class="box row3 col1" id="6">
-            <span class="box-symbol"></span>
-          </div>
-          <div class="box row3 col2" id="7">
-            <span class="box-symbol"></span>
-          </div>
-          <div class="box row3 col3" id="8">
-            <span class="box-symbol"></span>
-          </div>
-        </div>
-        <div class="multiplier-container">
-          <div class="multiplier-row">
-            <span class="multiply-symbol" id="m1"></span>
-            <span class="multiply-val" id="mul1"></span>
-            <span class="multiply-bet" id="win-row1"></span>
-          </div>
-          <div class="multiplier-row">
-            <span class="multiply-symbol" id="m2"></span>
-            <span class="multiply-val" id="mul2"></span>
-            <span class="multiply-bet" id="win-row2"></span>
-          </div>
-          <div class="multiplier-row">
-            <span class="multiply-symbol" id="m3"></span>
-            <span class="multiply-val" id="mul3"></span>
-            <span class="multiply-bet" id="win-row3"></span>
-          </div>
-        </div>
-      </div>
-      <div class="balance-container">
-        <div><span class="balance-text">Current Balance:</span></div>
-        <div><span class="balance-value" id="balance">0</span></div>
-      </div>
-      <div class="spin-container">
-        <button type="button" class="spin-button" onclick="game()">
-          <div class="spin-button-contents">
-            <img
-              class="spin-image"
-              src="images/spin.png"
-              height="20"
-              width="20"
-              alt="spin image"
-            />
-            SPIN
-          </div>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Slot Machine</title>
+  <link rel="stylesheet" href="./style.css" />
+  <link rel="shortcut icon" href="images/slotmachine_fav.png" type="image/x-icon">
+  <!-- Font Awesome -->
+  <script src="https://kit.fontawesome.com/7f2ff08db3.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+  <!-- NavBar -->
+  <nav id="navbar" class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <a class="navbar-brand mb-1 nav-heading" href="/index.html" style="font-size: 28px;">
+      <!-- <img src="./medicalLogo.png" /> -->
+      <img src="./images/slotmachine_fav.png" alt="" width="50px">Slot Machine
+    </a>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li>About</li>
+      <li>Contact Us</li>
+      <li>Login</li>
+    </ul>
+  </nav>
+
+  <div class="main-div">
+    <div class="top-text">
+      <span class="heading-text">
+        <h2>SLOT MACHINE</h2>
+      </span>
+      <span class="deposit-text"> Click here to deposit some money ! </span>
+      <button class="deposit-button" id="deposit" onclick="deposit()">
+        <b>Deposit</b>
+      </button>
+    </div>
+    <div class="bet-container">
+      <div><span class="bet-text">Current Bet:</span></div>
+      <div><span class="bet-value" id="bet-value">0</span></div>
+      <div>
+        <button class="get-bet-button" id="get-bet" onclick="getBet()">
+          <b>Enter Bet</b>
         </button>
       </div>
     </div>
-  </body>
-  <script src="./project.js"></script>
+    <div class="main-grid">
+      <div class="game-grid">
+        <div class="box row1 col1" id="0">
+          <span class="box-symbol"></span>
+        </div>
+        <div class="box row1 col2" id="1">
+          <span class="box-symbol"></span>
+        </div>
+        <div class="box row1 col3" id="2">
+          <span class="box-symbol"></span>
+        </div>
+        <div class="box row2 col1" id="3">
+          <span class="box-symbol"></span>
+        </div>
+        <div class="box row2 col2" id="4">
+          <span class="box-symbol"></span>
+        </div>
+        <div class="box row2 col3" id="5">
+          <span class="box-symbol"></span>
+        </div>
+        <div class="box row3 col1" id="6">
+          <span class="box-symbol"></span>
+        </div>
+        <div class="box row3 col2" id="7">
+          <span class="box-symbol"></span>
+        </div>
+        <div class="box row3 col3" id="8">
+          <span class="box-symbol"></span>
+        </div>
+      </div>
+      <div class="multiplier-container">
+        <div class="multiplier-row">
+          <span class="multiply-symbol" id="m1"></span>
+          <span class="multiply-val" id="mul1"></span>
+          <span class="multiply-bet" id="win-row1"></span>
+        </div>
+        <div class="multiplier-row">
+          <span class="multiply-symbol" id="m2"></span>
+          <span class="multiply-val" id="mul2"></span>
+          <span class="multiply-bet" id="win-row2"></span>
+        </div>
+        <div class="multiplier-row">
+          <span class="multiply-symbol" id="m3"></span>
+          <span class="multiply-val" id="mul3"></span>
+          <span class="multiply-bet" id="win-row3"></span>
+        </div>
+      </div>
+    </div>
+    <div class="balance-container">
+      <div><span class="balance-text">Current Balance:</span></div>
+      <div><span class="balance-value" id="balance">0</span></div>
+    </div>
+    <div class="spin-container">
+      <button type="button" class="spin-button" onclick="game()">
+        <div class="spin-button-contents">
+          <img class="spin-image" src="images/spin.png" height="20" width="20" alt="spin image" />
+          SPIN
+        </div>
+      </button>
+    </div>
+  </div>
+  <div class="connect">
+    Connect with us! <br>
+    © 2023, SlotMachine.com
+  </div>
+  <div class="iconAlign">
+    <a href="https://www.instagram.com/9GAG/"><img src="images/instagram-sketched.png" class="icon"></a>
+    <a href="https://www.facebook.com/9gag"><img src="images/facebook.png" class="icon"></a>
+    <a href="https://twitter.com/9GAG"><img src="images/twitter.png" class="icon"></a>
+  </div>
+</body>
+<script src="./project.js"></script>
+
 </html>
 <!-- <div class="checkboxes">
           <span class="check-button b1" id="ch1"> ✓ </span>
