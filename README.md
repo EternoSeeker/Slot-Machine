@@ -1,3 +1,5 @@
+<div id="top"></div>
+
 # Slot-Machine
 A basic slot machine game in plain html, css, javascript
 ## How to play ?
@@ -46,3 +48,5 @@ If you find any bugs or have any suggestions, please open an issue on GitHub and
 Visit the issues section to work on existing issues or create your own and work on it.
 
 Give a ⭐ if you enjoyed contributing to this repository !
+
+<p align="right">(<a href="#top">🔼 Back to top</a>)</p>
