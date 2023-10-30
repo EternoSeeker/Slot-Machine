@@ -9,15 +9,15 @@
 }
 
 body {
-  background-image: url("./images/slot_machine_background.jpg");
   background: brightness(70%);
   color: white;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .main-div {
-  background-image: url("./images/slot_machine_background.jpg");
+  background-image: url("./images/slot_machine_background.webp");
   background-size: cover;
+  background-position: center;
   background-repeat: no-repeat;
   display: flex;
   flex-grow: 1;
