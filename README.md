@@ -14,7 +14,7 @@ A basic slot machine game in plain html, css, javascript
 ## Screenshots
 **Initially:** 
 
-<img src="images/slotmachine1.png" alt="start image" width="500">
+<img src="images/slot-machine-initial.png" alt="start image" width="500">
 
 Winning on "C":
 
