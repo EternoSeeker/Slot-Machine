@@ -60,7 +60,7 @@ function clearMultipliers() {
 function getBet() {
   let balance = parseInt(document.getElementById("balance").innerText);
   clearMultipliers();
-
+  removeWinDisp(); //to clear winning display from the slots
   if (!isDeposited) {
     alert("Deposit some money first!");
     deposit();
@@ -84,6 +84,7 @@ function getBet() {
 
 function spin() {
   // Generate a matrix of random symbols for the slot machine
+  
   const symbols = [];
 
   for (const [symbol, count] of Object.entries(SYMBOLS_COUNT)) {
@@ -152,6 +153,37 @@ function mapRowsWin(symbolRows) {
   }
 }
 
+function winningDisplay(row){
+  // each time when a row matches, winning display class is added
+  if (row == 0){
+    document.getElementById("0").classList.add("win");
+    document.getElementById("1").classList.add("win");
+    document.getElementById("2").classList.add("win");
+  }
+  if (row == 1){
+    document.getElementById("3").classList.add("win");
+    document.getElementById("4").classList.add("win");
+    document.getElementById("5").classList.add("win");
+  }
+  if (row == 2){
+    document.getElementById("6").classList.add("win");
+    document.getElementById("7").classList.add("win");
+    document.getElementById("8").classList.add("win");
+  }
+}
+
+function removeWinDisp(){  
+  // each time when new spin is started, all the winning classes are removed
+  document.getElementById("0").classList.remove("win");
+  document.getElementById("1").classList.remove("win");
+  document.getElementById("2").classList.remove("win");
+  document.getElementById("3").classList.remove("win");
+  document.getElementById("4").classList.remove("win");
+  document.getElementById("5").classList.remove("win");
+  document.getElementById("6").classList.remove("win");
+  document.getElementById("7").classList.remove("win");
+  document.getElementById("8").classList.remove("win");
+}
 function getWinnings(rows, bet) {
   // Determine the winnings
   let winSymbol = [0, 0];
@@ -160,7 +192,7 @@ function getWinnings(rows, bet) {
   for (let row = 0; row < ROWS; row++) {
     const symbols = rows[row];
     let allSame = true;
-
+    
     for (const symbol of symbols) {
       if (symbol !== symbols[0]) {
         allSame = false;
@@ -169,6 +201,7 @@ function getWinnings(rows, bet) {
     }
 
     if (allSame) {
+      winningDisplay(row) //to add winning class to slots
       winSymbol[0] += bet * SYMBOLS_VALUES[symbols[0]];
       winSymbol[1] = bet;
       rowsNum.push(row);
