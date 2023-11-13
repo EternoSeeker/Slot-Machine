@@ -345,3 +345,64 @@ body {
   padding: 1rem;
   background: #4D4C7D;
 }
+
+
+.money-stat-container{
+  display: flex;
+  width: 60%;
+  justify-content:space-evenly;
+  border: 0px solid yellow;
+  align-items: center;
+  align-content: center;
+}
+
+.individual-container{
+  margin-top: 00px;
+}
+.inner-div{
+  margin-top: 1px;
+  background-color: rgba(255, 255, 0, 0) ;
+  padding: 0px;
+  border-radius: 10px 0px 0px 10px;
+  display: flex;
+  width: 150px;
+  height: 30px;
+  border: 1px solid yellow;
+}
+.inner-div img{
+  width: 60px;
+  height: 60px;
+  align-self: center;
+  border: 0px solid black;
+  margin: -30px auto auto -20px;
+}
+.money-value{
+  
+  margin: auto;
+  margin-right: 5px;
+  border: 0px solid black;
+  font-size: 20px;
+}
+.money-add-button{
+  border: 0px solid black;
+  background-color: #2361b9;
+  border-radius: 2px;
+  margin: auto;
+  margin-right: 2px;
+  font-size: 20px;
+  padding: 1px 2px;
+  color:#a4d0ff
+}
+.money-label{
+  margin: auto;
+  display: block;
+  width: fit-content;
+  font-size: 14px;
+  margin-right: 5px;
+  font-style:italic ;
+}
+.bet-img{
+width: 50px;
+height: 50px;
+margin-top: -25px;
+}
